@@ -83,6 +83,16 @@ describe('ObjectUtils', function () {
     });
 
     describe('#isNotObject', function () {
+        it('should not think object is not an object', function () {
+            Object.isNotObject({}).should.be.false;
+        });
 
+        it('should think string is not an object', function () {
+            Object.isNotObject('').should.be.true;
+        });
+
+        it('should think int is not an object', function () {
+            Object.isNotObject(1).should.be.true;
+        });
     });
 });
