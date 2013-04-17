@@ -1,3 +1,5 @@
+[![Build Status](http://craigcook.co.uk/build/job/Object%20Utils%20JS/badge/icon)](http://craigcook.co.uk/build/job/Object%20Utils%20JS/)
+
 ## Description
 
 Object utility functions in JavaScript for node.js
@@ -35,3 +37,8 @@ Produce xUnit style XML report file:
 Running the tests with coverage and producing HTML Mocha coverage report file:
 
     make test-cov
+
+## Links
+
+* http://craigcook.co.uk/build/job/Object%20Utils%20JS
+* http://craigcook.co.uk/quality/dashboard/index/257
