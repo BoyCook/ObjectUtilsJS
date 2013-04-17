@@ -1,25 +1,27 @@
 
 TESTS = test/spec
-REPORTER = xUnit
+REPORTER = spec
+XML_FILE = reports/TEST-all.xml
+HTML_FILE = reports/coverage.html
 
 test: test-mocha
 
-spec: test-spec
+test-ci:
+	$(MAKE) test-mocha REPORTER=xUnit > $(XML_FILE)
 
-test-spec:
-	jasmine-node test/spec/ObjectUtilsSpec.js --junitreport --verbose --captureExceptions --forceexit
+test-all: clean test-ci test-cov
 
-ui-test:
+test-ui: start
 	casperjs test test/ui
 
 test-mocha:
 	@NODE_ENV=test mocha \
 	    --timeout 200 \
 		--reporter $(REPORTER) \
-		$(TESTS) > reports/TEST-all.xml
+		$(TESTS)
 
 test-cov: lib-cov
-	@RPSLP_COV=1 $(MAKE) test
+	@HFS_COV=1 $(MAKE) test-mocha REPORTER=html-cov > $(HTML_FILE)
 
 lib-cov:
 	jscoverage lib lib-cov
