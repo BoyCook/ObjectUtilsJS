@@ -21,7 +21,7 @@ test-mocha:
 		$(TESTS)
 
 test-cov: lib-cov
-	@HFS_COV=1 $(MAKE) test-mocha REPORTER=html-cov > $(HTML_FILE)
+	@OU_COV=1 $(MAKE) test-mocha REPORTER=html-cov > $(HTML_FILE)
 
 lib-cov:
 	jscoverage lib lib-cov
