@@ -35,4 +35,3 @@ Produce xUnit style XML report file:
 Running the tests with coverage and producing HTML Mocha coverage report file:
 
     make test-cov
-
