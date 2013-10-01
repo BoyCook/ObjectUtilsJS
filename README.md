@@ -1,4 +1,8 @@
-[![Build Status](http://craigcook.co.uk/build/job/Object%20Utils%20JS/badge/icon)](http://craigcook.co.uk/build/job/Object%20Utils%20JS/)
+[![Build Status](https://travis-ci.org/BoyCook/ObjectUtilsJS.png?branch=master)](https://travis-ci.org/BoyCook/ObjectUtilsJS)
+[![Coverage Status](https://coveralls.io/repos/BoyCook/ObjectUtilsJS/badge.png)](https://coveralls.io/r/BoyCook/ObjectUtilsJS)
+[![Dependency Status](https://gemnasium.com/BoyCook/ObjectUtilsJS.png)](https://gemnasium.com/BoyCook/ObjectUtilsJS)
+
+[![NPM](https://nodei.co/npm/object-utils.png?downloads=true)](https://nodei.co/npm/object-utils) 
 
 ## Description
 
@@ -20,25 +24,6 @@ You can include the module from GitHub directly by adding the following to your 
         "object-utils": "https://github.com/BoyCook/ObjectUtilsJS/tarball/master"
     }
 
-## Tests
-
-Displaying results in the terminal (common usage):
-
-    make test
-
-Running all the tests (calls test-ci and test-cov - best used by CI server):
-
-    make test-all
-
-Produce xUnit style XML report file:
-
-    make test-ci
-
-Running the tests with coverage and producing HTML Mocha coverage report file:
-
-    make test-cov
-
-## Links
-
-* http://craigcook.co.uk/build/job/Object%20Utils%20JS
-* http://craigcook.co.uk/quality/dashboard/index/257
+## Building
+* `make test` runs the tests
+* `make test-cov` runs the tests with coverage
