@@ -1,5 +1,5 @@
 var should = require('should');
-var Object = require('../../index.js');
+var Object = require('../lib/objectutils.js');
 
 describe('ObjectUtils', function () {
 

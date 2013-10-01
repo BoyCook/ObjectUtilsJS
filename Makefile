@@ -1,18 +1,10 @@
 
-TESTS = test/spec
+TESTS = test
 REPORTER = spec
-XML_FILE = reports/TEST-all.xml
-HTML_FILE = reports/coverage.html
+COVERAGE_REPORT = ./coverage/lcov.info
+COVERALLS = ./node_modules/coveralls/bin/coveralls.js
 
 test: test-mocha
-
-test-ci:
-	$(MAKE) test-mocha REPORTER=xUnit > $(XML_FILE)
-
-test-all: clean test-ci test-cov
-
-test-ui: start
-	casperjs test test/ui
 
 test-mocha:
 	@NODE_ENV=test mocha \
@@ -20,12 +12,24 @@ test-mocha:
 		--reporter $(REPORTER) \
 		$(TESTS)
 
-test-cov: lib-cov
-	@OU_COV=1 $(MAKE) test-mocha REPORTER=html-cov > $(HTML_FILE)
+test-cov: istanbul
 
-lib-cov:
-	jscoverage lib lib-cov
+istanbul:
+	istanbul cover _mocha -- -R spec $(TESTS)
+
+coveralls:
+	cat $(COVERAGE_REPORT) | $(COVERALLS)
+
+cov-html: test-cov html-cov-report
+
+html-cov-report: 
+	istanbul report html	
+
+npm:
+	npm publish ./
+
+check:
+	travis-lint .travis.yml
 
 clean:
-	rm -f reports/*
-	rm -fr lib-cov
+	rm -rf ./coverage
