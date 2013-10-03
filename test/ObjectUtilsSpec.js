@@ -105,4 +105,16 @@ describe('ObjectUtils', function () {
             Object.isString(1).should.be.false;
         });
     });        
+
+    describe('#getDateString', function () {
+        it('should give date at string', function () {
+            Object.getDateString(new Date('2013-10-01 15:00')).should.eql('2013-10-1 15:0');
+        });
+        // it('should think a string is a string', function () {
+        //     Object.isString('').should.be.true;
+        // });
+        // it('should not think an int is an string', function () {
+        //     Object.isString(1).should.be.false;
+        // });
+    });            
 });
